@@ -13,7 +13,6 @@ const uint32_t p2p_type_symmetric = 4;
 
 const uint32_t p2p_type_multiip   = 5;
 
-
 const uint32_t p2p_code_connect_error   = 0;
 
 const uint32_t p2p_code_connect_timeout = 1;
@@ -23,7 +22,6 @@ const uint32_t p2p_code_close_active    = 2;
 const uint32_t p2p_code_close_passive   = 3;
 
 const uint32_t p2p_code_close_timeout   = 4;
-
 
 typedef void(*p2p_recved)(uint64_t id, uint32_t session, char* bytes, uint32_t size);
 
@@ -36,7 +34,6 @@ typedef void(*p2p_accepted)(uint64_t id, uint32_t session, uint32_t type);
 typedef void(*p2p_connected)(uint64_t id, uint32_t session, uint32_t type);
 
 typedef void(*p2p_closed)(uint64_t id, uint32_t session, uint32_t code);
-
 
 struct p2p_callback
 {
