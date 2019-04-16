@@ -25,11 +25,11 @@ const uint32_t p2p_code_close_passive   = 3;
 const uint32_t p2p_code_close_timeout   = 4;
 
 
-typedef void(*p2p_recved)(uint64_t id, uint32_t session, char* data, uint32_t size);
+typedef void(*p2p_recved)(uint64_t id, uint32_t session, char* bytes, uint32_t size);
 
 typedef void(*p2p_checked)(uint32_t type, const char* host_ip, const char* napt_ip);
 
-typedef void(*p2p_keepalived)(const char* ip, uint16_t port, uint64_t latency);
+typedef void(*p2p_keepalived)(const char* napt_ip, uint16_t napt_port, uint64_t latency);
 
 typedef void(*p2p_accepted)(uint64_t id, uint32_t session, uint32_t type);
 
@@ -55,14 +55,14 @@ struct p2p_callback
 
 extern "C" void p2p_config(uint64_t id, p2p_callback callback);
 
-extern "C" void p2p_login(const char* ip, uint16_t port);
+extern "C" void p2p_login(const char* proxy_ip, uint16_t proxy_port);
 
 extern "C" void p2p_logout();
 
-extern "C" void p2p_connect(uint64_t id, const char* ip, uint16_t port);
+extern "C" void p2p_connect(uint64_t id, const char* proxy_ip, uint16_t proxy_port);
 
 extern "C" void p2p_close(uint32_t session);
 
-extern "C" void p2p_send(uint32_t session, const void* data, uint32_t size);
+extern "C" void p2p_send(uint32_t session, const void* bytes, uint32_t size);
 
 extern "C" uint32_t p2p_waitsend(uint32_t session);
